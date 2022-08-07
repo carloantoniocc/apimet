@@ -14,7 +14,7 @@ class CreateDispositivosTable extends Migration
     public function up()
     {
         Schema::create('dispositivos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->index();
             $table->integer('cliente_id')->unsigned();
             $table->string('code');
             $table->string('descripcion');
