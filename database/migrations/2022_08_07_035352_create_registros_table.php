@@ -14,7 +14,7 @@ class CreateRegistrosTable extends Migration
     public function up()
     {
         Schema::create('registros', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->index();
             $table->integer('dispositivo_id')->unsigned();
             $table->double('temperatura', 8, 2)->nullable();
             $table->double('humedad', 8, 2)->nullable();
