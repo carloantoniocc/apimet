@@ -24,9 +24,27 @@ class RegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+     public function store(Request $request)
     {
-        //
+
+        $registro = new Registro;
+        $registro->dispositivo_id = $request->dispositivo_id;
+        $registro->temperatura = $request->temperatura;
+        $registro->humedad = $request->humedad;
+        $registro->presion_atmosferica = $request->presion_atmosferica;
+        $registro->velocidad_viento = $request->velocidad_viento;
+        $result=$registro->save();
+        
+        if($result)
+        {
+            return ["Result" =>"Su registro ha sido creado"];
+        }
+        else
+        {
+            return ["Result" =>"Operacion ha fallado"];
+        }
+        
     }
 
     /**
